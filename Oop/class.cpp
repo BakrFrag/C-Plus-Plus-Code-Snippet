@@ -2,7 +2,7 @@
 using namespace std;
 
 class Animal {
-    public:
+    private:
     string name;
     double height;
     double weight;
@@ -10,15 +10,15 @@ class Animal {
     public:
         void setname(string);
         string getname() {
-            return name;
+            return this->name;
         };
         void setheight(double);
         double getheight() {
-            return height;
+            return this->height;
         };
         void setweight(double);
         double getweight() {
-            return weight;
+            return this->weight;
         };
         void setall(string,double,double);
         Animal();
@@ -56,17 +56,49 @@ void Animal::tostring() {
 };
 Animal::~Animal() {
     cout<<"Animal"<< this->name <<"destroyed"<<endl;
-}
+};
+class Dog : public Animal {
+     private:
+     string type;
+     public:
+     Dog():Animal(){};
+     string gettype();
+     Dog(string,double,double,string);
+     void tostring();
+     ~Dog();
 
+};
+string Dog::gettype() {
+         return this->type;
+};
+void Dog::tostring() {
+   cout<<"name"<<this->getname()<<"type"<<this->gettype()<<endl;
+};
+Dog::Dog(string name,double weight,double height,string type){
+    Animal(name,height,weight);
+    this->type=type;
+}
+Dog::~Dog(){
+    cout<<"Dog "<<this->getname()<<" died"<<endl;
+};
 int main() {
-    Animal a("an",105.123,147.159);
-    cout<<a.getnumber()<<endl;
-    a.tostring();
-    a.setname("New");
-    a.number=15;
-    cout<<a.getname()<<"   "<<a.getnumber()<<endl;
-    cout<<"\n\n";
-    Animal b("s",14.8,15.8);
-    cout<<b.getnumber()<<endl;
+    // animal class
+    // Animal a("an",105.123,147.159);
+    // cout<<a.getnumber()<<endl;
+    // a.tostring();
+    // a.setname("New");
+    // cout<<a.getname()<<"   "<<a.getnumber()<<endl;
+    // cout<<"\n\n";
+    // Animal b("second",14.8,15.8);
+    // cout<<b.getnumber()<<endl;
+    // b.tostring();
+    // dog class
+    Dog d("Dog",15.12,12.15,"Dog");
+    cout<<d.getname()<<endl;
+    cout<<d.gettype()<<endl;
+    cout<<d.getweight()<<endl;
+    cout<<d.getheight()<<endl;
+    cout<<d.getnumber()<<endl;
+    d.tostring();
     return 0;
 }
