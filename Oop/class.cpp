@@ -55,7 +55,7 @@ void Animal::tostring() {
    << this->weight<<"animail height "<<this->height<<endl;
 };
 Animal::~Animal() {
-    cout<<"Animal"<< this->name <<"destroyed"<<endl;
+    cout<<"Animal "<< this->name <<" destroyed"<<endl;
 };
 class Dog : public Animal {
      private:
@@ -65,24 +65,24 @@ class Dog : public Animal {
      string gettype();
      Dog(string,double,double,string);
      void tostring();
-     ~Dog();
+    //  ~Dog();
 
 };
 string Dog::gettype() {
          return this->type;
 };
 void Dog::tostring() {
-   cout<<"name"<<this->getname()<<"type"<<this->gettype()<<endl;
+   cout<<"name "<<this->getname()<<endl<<" type "<<this->gettype()<<endl;
 };
 Dog::Dog(string name,double weight,double height,string type){
     Animal(name,height,weight);
     this->type=type;
-}
-Dog::~Dog(){
-    cout<<"Dog "<<this->getname()<<" died"<<endl;
-};
+ };
+// Dog::~Dog(){
+//     cout<<"Dog "<<this->getname()<<" died"<<endl;
+// };
 int main() {
-    // animal class
+    //animal class
     // Animal a("an",105.123,147.159);
     // cout<<a.getnumber()<<endl;
     // a.tostring();
@@ -92,8 +92,8 @@ int main() {
     // Animal b("second",14.8,15.8);
     // cout<<b.getnumber()<<endl;
     // b.tostring();
-    // dog class
-    Dog d("Dog",15.12,12.15,"Dog");
+    //dog class
+    Dog d("check",15.12,12.15,"Dog");
     cout<<d.getname()<<endl;
     cout<<d.gettype()<<endl;
     cout<<d.getweight()<<endl;
