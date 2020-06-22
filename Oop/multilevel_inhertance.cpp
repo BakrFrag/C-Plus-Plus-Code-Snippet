@@ -47,11 +47,10 @@ class student : public person {
     string gpa="good";
     public:
     student(){
-            
+            cout<<"student default constructor"<<endl;
     };
     student(string name,string gender,int age,int level,string gpa):person(name,gender,age)
     {
-          
           this->gpa=gpa;
           this->level=level;
           
@@ -70,14 +69,22 @@ class student : public person {
     }
 };
 
+class masterstudent : public student{
+    private:
+    string recarch;
+    public:
+    masterstudent(string n,string g,int age,int l,string gpa,
+    string r):student(n,g,age,l,gpa)
+    {
+        this->recarch=r;
+    };
+    void display() {
+        student::display();
+        cout<<"recharch:"<<this->recarch<<endl;
+    }
+};
 int main() {
-   cout<<"Person Data"<<endl;
-   person p("Bk","Male",25);
-   p.display();
-   cout<<"Student Data"<<endl;
-   student one("new","male",50,18,"Graduated");
-   one.display();
-   
+  masterstudent ms("BK","Male",25,18,"Graduated","Big Data");
 
-
+  ms.display();
 }
