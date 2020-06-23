@@ -73,8 +73,9 @@ class masterstudent : public student{
     private:
     string recarch;
     public:
-    masterstudent(string n,string g,int age,int l,string gpa,
-    string r):student(n,g,age,l,gpa)
+    masterstudent(string n,string g,int age,int l,string gpa,string r):student(
+        n,g,age,l,gpa
+        )
     {
         this->recarch=r;
     };
