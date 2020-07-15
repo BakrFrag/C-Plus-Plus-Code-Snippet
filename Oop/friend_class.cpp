@@ -1,32 +1,33 @@
 #include<iostream>
 using namespace std;
-class man {
-    private:
-      string name;
-      string title;
-      double age;
-    friend class human;
+class Person {
+  private:
+  string gender;
+  string name;
+  public:
+  Person(){
+    cout<<"Default Constructor"<<endl;
+  };
+  Person(string n,string gender):name(n),gender(gender){};
+  // friend class friendperson is friend for person
+  // but person class is not friend for friendperson
+  friend class friendperson;
 };
-class human {
-   public:
-   void show() {
-       man m;
-       m.name="new";
-       m.title="new";
-       m.age=25.3;
-       cout<<m.name<<"\t"<<m.title<<"\t"<<m.age<<endl;
+class friendperson {
+  public:
+  void display(Person p){
+    cout<<"Object:"<<p.name<<endl;
+  };
+};
 
-   };
-   void display() {
-       man m;
-       m.name="anthor";
-       m.title="one";
-       m.age=25.3;
-       cout<<m.name<<"\t"<<m.title<<"\t"<<m.age<<endl;
-   };
-};
-int main() {
-  human h;
-  h.show();
-  h.display();
-};
+int main() {;
+Person p;
+friendperson fp;
+fp.display(p);
+Person p2("Bk","Male");
+fp.display(p2);
+Person anthor=p;
+fp.display(anthor);
+Person also=p2;
+fp.display(also);
+}
